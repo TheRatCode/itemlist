@@ -144,6 +144,21 @@ title: Store
         placeholder=site.data.language.search_animals -%}
 {%- endif -%}
 
+{%- if drugsForDisplay.size > 0 -%}
+    {% capture headers %}
+        {{ site.data.language.name_header }},{{ site.data.language.cost_header }}
+    {% endcapture %}
+
+    {%- include store_tab.html
+        id='drugs'
+        type='Drug'
+        buyName=buy
+        headers=headers
+        priceDataHeaders=site.data.language.cost_header
+        displayData=drugsForDisplay
+        placeholder=site.data.language.search_drugs -%}
+{%- endif -%}
+
 {%- if traitsForDisplay.size > 0 -%}
     {%- assign headers = site.data.language.name_header | split: ',' -%}
 
