@@ -14,7 +14,7 @@ title: Store
 {%- assign traitsForDisplay = '' | split: ',' -%}
 {%- assign kindsForDisplay = site.data.ShopExt.races | where: "enabled", "true" | sort: "name" -%}
 {%- assign weaponsForDisplay = '' | split: ',' -%}
-{%- assign drugsForDisplay = site.data.StoreItems.items | where: "category", "Drugs" -% | sort: "abr" -%}
+{%- assign drugsForDisplay = '' | split: ',' -%}
 
 {%- for item in site.data.StoreItems.items -%}
     {%- if item.price <= 0 -%}
@@ -23,6 +23,11 @@ title: Store
 
     {%- if site.data.itemdata[item.defname].IsWeapon -%}
         {%- assign weaponsForDisplay = weaponsForDisplay | push: item | sort: "abr" -%}
+        {%- continue -%}
+    {%- endif -%}
+                         
+    {%- if item.category == "Drugs" -%}
+        {%- assign drugsForDisplay = drugsForDisplay | push: item | sort: "abr" -%}
         {%- continue -%}
     {%- endif -%}
                          
