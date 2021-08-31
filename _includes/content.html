@@ -41,6 +41,9 @@
                 {%- when 'Animal' -%}
                     {%- assign itemdata = site.data.itemdata[item.defname] -%}
                     {%- include animal.html item=item itemdata=itemdata buyName=buyName -%}
+                {%- when 'Drugs' -%}
+                    {%- assign itemdata = site.data.itemdata[item.defname] -%}
+                    {%- include drugs.html item=item itemdata=itemdata buyName=buyName -%}
                 {%- when 'Event' -%}
                     {%- assign eventdata = site.data.eventdata[item.abr] -%}
                     {%- include event.html event=item eventdata=eventdata buyName=buyName -%}
