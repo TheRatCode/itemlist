@@ -35,6 +35,7 @@ search_pawn_kinds: 'Search for pawn kinds...'
 search_mods: 'Search for mods...'
 search_commands: 'Search for commands...'
 search_animals: 'Search for animals...'
+search_drugs: 'Search for drugs...'
 search_events: 'Search for events...'
 search_weapons: 'Search for weapons...'
 
