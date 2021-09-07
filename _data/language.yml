@@ -5,6 +5,7 @@ traits_tab: 'Traits'
 animals_tab: 'Animals'
 weapons_tab: 'Weapons'
 drugs_tab: 'Drugs'
+armors_tab: 'Armor'
 pawn_kinds_tab: 'Pawn Kinds'
 
 # Table headers
@@ -39,6 +40,7 @@ search_animals: 'Search for animals...'
 search_drugs: 'Search for drugs...'
 search_events: 'Search for events...'
 search_weapons: 'Search for weapons...'
+search_armors: 'Search for armor...'
 
 # Metadata
 usage: 'Usage: %s'
