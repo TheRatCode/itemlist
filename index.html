@@ -22,7 +22,7 @@ title: Store
         {%- continue -%}
     {%- endif -%}
                          
-    {%- if item.defname contains 'Apparel_Armor' -%}
+    {%- if item.defname contains "Apparel_Armor" -%}
         {%- assign armorsForDisplay = armorsForDisplay | push: item | sort: "abr" -%}
         {%- continue -%}
     {%- endif -%}
