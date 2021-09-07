@@ -55,6 +55,11 @@ store:
     mod: true
     quantity: true
     karma: true
+  armors:
+    usage: true
+    mod: true
+    quantity: true
+    karma: true
 
 commands:
   # Whether or not the command list will display the command's shortcut disclaimer.
