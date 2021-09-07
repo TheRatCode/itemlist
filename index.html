@@ -15,9 +15,15 @@ title: Store
 {%- assign kindsForDisplay = site.data.ShopExt.races | where: "enabled", "true" | sort: "name" -%}
 {%- assign weaponsForDisplay = '' | split: ',' -%}
 {%- assign drugsForDisplay = site.data.StoreItems.items | where: "category", "Drugs" | sort: "abr" -%}
+{%- assign armorsForDisplay = '' | split: ',' -%}
 
 {%- for item in site.data.StoreItems.items -%}
     {%- if item.price <= 0 -%}
+        {%- continue -%}
+    {%- endif -%}
+                         
+    {%- if item.defname contains 'Apparel_Armor' -%}
+        {%- assign armorsForDisplay = armorsForDisplay | push: item | sort: "abr" -%}
         {%- continue -%}
     {%- endif -%}
 
@@ -59,6 +65,10 @@ title: Store
 
     {%- if weaponsForDisplay.size > 0 -%}
         {%- include tab.html id='weapons' -%}
+    {%- endif -%}
+
+    {%- if armorsForDisplay.size > 0 -%}
+        {%- include tab.html id='armors' -%}
     {%- endif -%}
 
     {%- if drugsForDisplay.size > 0 -%}
@@ -127,6 +137,21 @@ title: Store
         priceDataHeaders=site.data.language.cost_header
         displayData=weaponsForDisplay
         placeholder=site.data.language.search_weapons -%}
+{%- endif -%}
+
+{%- if armorsForDisplay.size > 0 -%}
+    {% capture headers %}
+        {{ site.data.language.name_header }},{{ site.data.language.cost_header }}
+    {% endcapture %}
+
+    {%- include store_tab.html
+        id='armors'
+        type='Armors'
+        buyName=buy
+        headers=headers
+        priceDataHeaders=site.data.language.cost_header
+        displayData=armorsForDisplay
+        placeholder=site.data.language.search_armors -%}
 {%- endif -%}
 
 {%- if animalsForDisplay.size > 0 -%}
